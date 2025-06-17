@@ -1,6 +1,7 @@
 <template>
   <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
+    <NuxtLink to="/">Home</NuxtLink>
+    <NuxtLink to="/about">About</NuxtLink>
+    <NuxtLink :to="{ name: 'users-list' }">User List</NuxtLink>
   </nav>
 </template>

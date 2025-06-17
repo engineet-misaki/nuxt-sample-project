@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script setup>
+useHead({
+  title: 'Aboutページ',
+  meta: [
+    {
+      name: 'description',
+      content: 'Aboutページ',
+    },
+  ],
+});
+</script>
 
 <template>
   <div>
