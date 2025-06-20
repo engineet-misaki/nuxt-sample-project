@@ -1,19 +1,15 @@
-<script setup>
-useHead({
-  title: 'Aboutページ',
-  meta: [
-    {
-      name: 'description',
-      content: 'Aboutページ',
-    },
-  ],
-});
-</script>
-
 <template>
   <div>
-    Page: about
+    <Head>
+      <Title>Aboutページ</Title>
+      <Meta name="description" content="Aboutページ" />
+    </Head>
+    <h1>About Page</h1>
+    <h2>Counter</h2>
+    <p>Count: {{ counter }}</p>
+    <div><button @click="counter++">+</button></div>
   </div>
 </template>
-
-<style scoped></style>
+<script setup>
+const counter = useState('counter', () => 0);
+</script>

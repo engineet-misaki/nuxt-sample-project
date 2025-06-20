@@ -1,5 +1,7 @@
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
-  // css: ['/assets/css/style.css'],
+  css: ['/assets/css/style.css'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -7,5 +9,11 @@ export default defineNuxtConfig({
       meta: [{ name: 'description', content: 'Nuxt 3 for beginners' }],
       link: [{ rel: 'icon', href: '/icon.png' }],
     },
+  },
+
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
 });
