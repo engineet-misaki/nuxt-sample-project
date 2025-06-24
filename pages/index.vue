@@ -1,9 +1,10 @@
+<script setup>
+const { data } = useFetch('/api/hello');
+</script>
 
 <template>
   <div>
-      <h1>Main Page</h1>
-      <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+    <h1>Main Page</h1>
+    <h2>{{ data }}</h2>
   </div>
 </template>
