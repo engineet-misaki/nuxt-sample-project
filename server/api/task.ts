@@ -1,8 +1,20 @@
 import { PrismaClient } from '@/generated/prisma/client';
 
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
     const prisma = new PrismaClient();
-    const tasks = await prisma.task.findMany();
+    if (event.node.req.method === 'GET') {
+        const tasks = await prisma.task.findMany();
 
-    return tasks;
+        return tasks;
+    }
+    if (event.node.req.method === 'POST') {
+        const body = await readBody(event);
+        const newTask = await prisma.task.create({
+            data: {
+                task: body.task,
+                completed: false,
+            },
+        });
+        return newTask;
+    }
 });
