@@ -3,6 +3,7 @@ const task = ref('');
 const { data: tasks ,refresh } = useFetch('/api/task');
 
 const addTask = () => {
+  console.log('test')
   $fetch('/api/task', {
     method: 'post',
     body: { task: task.value },
@@ -20,7 +21,7 @@ const addTask = () => {
     </ul>
     <form @submit.prevent="addTask">
       <div>
-        <input v-model="task" />
+        <input v-model="task" class="border" />
       </div>
       <div>
         <button type="submit">タスクを登録</button>
