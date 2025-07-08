@@ -1,9 +1,8 @@
-<script setup>
+<script lang="ts" setup>
 const task = ref('');
 const { data: tasks ,refresh } = useFetch('/api/task');
 
 const addTask = () => {
-  console.log('test')
   $fetch('/api/task', {
     method: 'post',
     body: { task: task.value },
@@ -19,7 +18,7 @@ const addTask = () => {
     <ul>
       <li v-for="task in tasks" :key="task.id">{{ task.task }}</li>
     </ul>
-    <form @submit.prevent="addTask">
+    <form class="mt-4" @submit.prevent="addTask">
       <div>
         <input v-model="task" class="border" />
       </div>
